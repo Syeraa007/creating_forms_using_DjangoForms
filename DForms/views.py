@@ -45,11 +45,3 @@ def django_record(request):
             DAccessRecord.objects.get_or_create(name=WDO,date=ARDO.cleaned_data['date'],url=ARDO.cleaned_data['author'])[0].save()
             return HttpResponse('Data gathering finished successfully..!!')
     return render(request,'django_record.html',d)
-
-def form_show(request):
-    DSO=DSignUp.objects.all()
-    DTO=DTopic.objects.all()
-    DWO=DWebpage.objects.all()
-    DAO=DAccessRecord.objects.all()
-    d={'DSO':DSO,'DTO':DTO,'DWO':DWO,'DAO':DAO}
-    return render(request,'form_show.html',d)
