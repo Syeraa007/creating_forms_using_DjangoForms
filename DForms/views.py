@@ -34,14 +34,3 @@ def django_page(request):
             DWebpage.objects.get_or_create(topic_name=TDO,name=WDO.cleaned_data['name'],url=WDO.cleaned_data['url'])[0].save()
             return HttpResponse('Data gathering finished successfully..!!')
     return render(request,'django_page.html',d)
-
-def django_record(request):
-    ARO=AccessRecord()
-    d={'ARO':ARO}
-    if request.method=='POST':
-        ARDO=AccessRecord(request.POST)
-        WDO=DWebpage(request.POST['name'])
-        if ARDO.is_valid():
-            DAccessRecord.objects.get_or_create(name=WDO,date=ARDO.cleaned_data['date'],url=ARDO.cleaned_data['author'])[0].save()
-            return HttpResponse('Data gathering finished successfully..!!')
-    return render(request,'django_record.html',d)
