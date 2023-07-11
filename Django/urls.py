@@ -23,5 +23,4 @@ urlpatterns = [
     path('django_forms/',django_forms,name='django_forms'),
     path('django_topic/',django_topic,name='django_topic'),
     path('django_page/',django_page,name='django_page'),
-    path('django_record/',django_record,name='django_record'),
 ]
