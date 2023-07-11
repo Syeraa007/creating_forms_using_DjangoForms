@@ -11,7 +11,7 @@ class DSignUp(models.Model):
     address=models.TextField()
 
     def __str__(self) -> str:
-        return self.course
+        return self.name
     
 class DTopic(models.Model):
     topic_name=models.CharField(max_length=100,primary_key=True)

@@ -7,10 +7,12 @@
 </head>
 <body>
     <center>
+        <h2>{{ html }}</h2>
         <h1>Django Sign Up Form</h1>
         <form action="" method="POST">
             {% csrf_token %}
-            {{ SUO.as_p }}
+            {{ form }}
+            <table>{{ SUO.as_table }}</table>
             <input type="submit" value="Push Form">
         </form>
     </center>

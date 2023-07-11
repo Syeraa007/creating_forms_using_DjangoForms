@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display all forms data</title>
+</head>
+<body>
+    <center>
+        <h1>Displaying data of SignUp form</h1>
+        <table border="3px">
+            <tr>
+                <td>Name</td><td>Age</td><td>Course</td><td>Email</td>
+                <td>Password</td><td>Gender</td><td>Address</td>
+            </tr>
+            {% for fo in DSO %}
+                <tr>
+                    <td>{{fo.name}}</td><td>{{fo.age}}</td><td>{{fo.course}}</td>
+                    <td>{{fo.email}}</td><td>{{fo.password}}</td>
+                    <td>{{fo.gender}}</td><td>{{fo.address}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+    </center><hr><hr>
+    
+    <center>
+        <h1>Displaying data of Topic form</h1>
+        <table border="3px">
+            <tr>
+                <td>Topic Name</td>
+            </tr>
+            {% for to in DTO %}
+            <tr>
+                <td>{{to.topic_name}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+    </center><hr><hr>
+    
+    <center>
+        <h1>Displaying data of Webpage form</h1>
+        <table border="3px">
+            <tr>
+                <td>Topic Name</td><td>Name</td><td>URL</td>
+            </tr>
+            {% for po in DWO %}
+                <tr>
+                    <td>{{po.topic_name}}</td><td>{{po.name}}</td><td>{{po.url}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+    </center><hr><hr>
+
+    <!-- <center>
+        <h1>Displaying data of AccessRecord form</h1>
+        <table border="3px">
+            <tr>
+                <td>Name</td><td>Date</td><td>Author</td>
+            </tr>
+            {% for ro in DAO %}
+                <tr>
+                    <td>{{ro.name}}</td><td>{{ro.date}}</td><td>{{ro.author}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+    </center> -->
+</body>
+</html>

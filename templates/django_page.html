@@ -10,7 +10,7 @@
         <h1>Django Webpage Form</h1>
         <form action="" method="POST">
             {% csrf_token %}
-            {{WO.as_p}}
+            <table>{{ WO.as_table }}</table>
             <input type="submit" value="Push Page">
         </form>
     </center>

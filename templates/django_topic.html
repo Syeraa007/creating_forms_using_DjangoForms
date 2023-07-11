@@ -10,7 +10,7 @@
         <h1>Django Topic Form</h1>
         <form action="" method="POST">
             {% csrf_token %}
-            {{TO.as_p}}
+            <table>{{ TO.as_table }}</table>
             <input type="submit" value="Push Topic">
         </form>
     </center>

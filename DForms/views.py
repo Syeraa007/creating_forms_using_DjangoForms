@@ -10,6 +10,7 @@ def django_forms(request):
     if request.method=='POST':
         DSO=SignUp(request.POST)
         if DSO.is_valid():
+            DSignUp.objects.get_or_create(name=DSO.cleaned_data['name'],age=DSO.cleaned_data['age'],course=DSO.cleaned_data['course'],email=DSO.cleaned_data['email'],password=DSO.cleaned_data['password'],gender=DSO.cleaned_data['gender'],address=DSO.cleaned_data['address'])[0].save()
             return HttpResponse('Data gathering finished successfully')
     return render(request,'django_forms.html',d)
 
@@ -19,6 +20,7 @@ def django_topic(request):
     if request.method=='POST':
         TDO=Topic(request.POST)
         if TDO.is_valid():
+            DTopic.objects.get_or_create(topic_name=TDO.cleaned_data['topic'])[0].save()
             return HttpResponse('Data gathering finished successfully..!!')
     return render(request,'django_topic.html',d)
 
@@ -27,7 +29,9 @@ def django_page(request):
     d={'WO':WO}
     if request.method=='POST':
         WDO=Webpage(request.POST)
+        TDO=DTopic(request.POST['topic'])
         if WDO.is_valid():
+            DWebpage.objects.get_or_create(topic_name=TDO,name=WDO.cleaned_data['name'],url=WDO.cleaned_data['url'])[0].save()
             return HttpResponse('Data gathering finished successfully..!!')
     return render(request,'django_page.html',d)
 
@@ -36,6 +40,16 @@ def django_record(request):
     d={'ARO':ARO}
     if request.method=='POST':
         ARDO=AccessRecord(request.POST)
+        WDO=DWebpage(request.POST['name'])
         if ARDO.is_valid():
+            DAccessRecord.objects.get_or_create(name=WDO,date=ARDO.cleaned_data['date'],url=ARDO.cleaned_data['author'])[0].save()
             return HttpResponse('Data gathering finished successfully..!!')
     return render(request,'django_record.html',d)
+
+def form_show(request):
+    DSO=DSignUp.objects.all()
+    DTO=DTopic.objects.all()
+    DWO=DWebpage.objects.all()
+    DAO=DAccessRecord.objects.all()
+    d={'DSO':DSO,'DTO':DTO,'DWO':DWO,'DAO':DAO}
+    return render(request,'form_show.html',d)
