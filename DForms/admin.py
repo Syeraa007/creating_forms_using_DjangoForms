@@ -5,4 +5,3 @@ from DForms.models import *
 admin.site.register(DSignUp)
 admin.site.register(DTopic)
 admin.site.register(DWebpage)
-admin.site.register(DAccessRecord)

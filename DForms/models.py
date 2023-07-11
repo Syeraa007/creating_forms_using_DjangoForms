@@ -25,11 +25,3 @@ class DWebpage(models.Model):
 
     def __str__(self):
         return self.name
-    
-class DAccessRecord(models.Model):
-    name=models.ForeignKey(DWebpage,on_delete=models.CASCADE)
-    date=models.DateField()
-    author=models.CharField(max_length=20)
-
-    def __str__(self) -> str:
-        return self.author

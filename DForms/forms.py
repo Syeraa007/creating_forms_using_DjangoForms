@@ -29,9 +29,4 @@ class Webpage(forms.Form):
     # topic=forms.CharField(label='Topic Name',help_text='Enter a topic name')
     name=forms.CharField(label='Name',help_text='Enter name')
     url=forms.URLField(label='URL',help_text='Enter URL')
-
-# Access Record form creation
-class AccessRecord(forms.Form):
-    name=forms.CharField(label='Name',help_text='Enter name')
-    date=forms.DateField(label='Date',help_text='Enter date')
-    author=forms.CharField(label='Author',help_text='Enter author')    
+  
