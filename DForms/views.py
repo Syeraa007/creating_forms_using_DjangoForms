@@ -30,12 +30,3 @@ def django_page(request):
         if WDO.is_valid():
             return HttpResponse('Data gathering finished successfully..!!')
     return render(request,'django_page.html',d)
-
-def django_record(request):
-    ARO=AccessRecord()
-    d={'ARO':ARO}
-    if request.method=='POST':
-        ARDO=AccessRecord(request.POST)
-        if ARDO.is_valid():
-            return HttpResponse('Data gathering finished successfully..!!')
-    return render(request,'django_record.html',d)
